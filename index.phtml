@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test-evaluation</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <br>
+  <h1><em>Gestion d'information</em></h1>
+
+  <hr>
+  <a href="./formulaire.php"><button type="button" class="btn btn-primary">Remplir vos information</button></a>
+  <br>
+  <br>
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Image</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach (List_Info() as $key) : ?>
+     
+        <tr>
+          <th scope="row"><?= $key['Nom'] ?></th>
+          <td><?= $key['Prénom'] ?></td>
+          <td><?= $key['Adresse'] ?></td>
+          <td><?= $key['Tel'] ?></td>
+          <td><?= $key['Image'] ?></td>
+          <td><a href="miseAjour.php?idModifier=<?= $key['id'] ?>"><button name="modifier" type="button" class="btn btn-info">Modifier</button></a></td>
+          <td><a href="?idSupprimer=<?= $key['id'] ?>">
+          <button name="supprimer" type="button" class="btn btn-info">supprimer</button></a></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</body>
+
+</html>
